@@ -15,14 +15,32 @@ const schema = buildSchema(`
     key: String
     label: String
     changes: [String]
+    env: [Env]
+  }
+
+  type Env {
+    name: String
+    enabled: Boolean
+    stable: Boolean
+    released: String
   }
 `);
 
 class Flag {
-  constructor({ key, label, changes }) {
+  constructor({ key, label, changes, env }) {
     this.key = key;
     this.label = label;
     this.changes = changes;
+    this.env = env.map(e => new Env(e));
+  }
+}
+
+class Env {
+  constructor({ name, enabled, stable, released }) {
+    this.name = name,
+    this.enabled = enabled,
+    this.stable = stable,
+    this.released = released
   }
 }
 

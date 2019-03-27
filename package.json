@@ -1,0 +1,31 @@
+{
+  "name": "global-flags-service",
+  "version": "0.0.1",
+  "description": "service for flags shared globally across processes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "global",
+    "flags",
+    "trunk-based",
+    "feature",
+    "CI"
+  ],
+  "author": "Nafeu Nasir",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.2.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}

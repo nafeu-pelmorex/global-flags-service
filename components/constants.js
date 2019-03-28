@@ -1,0 +1,1 @@
+module.exports.DATE_FORMAT = 'MMMM Do, YYYY @ h:ma';

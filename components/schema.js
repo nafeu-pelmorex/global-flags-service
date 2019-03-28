@@ -2,7 +2,7 @@ const { buildSchema } = require('graphql');
 
 module.exports = buildSchema(`
   type Query {
-    flags: [Flag]
+    flags(search: String): [Flag]
   }
 
   type Flag {

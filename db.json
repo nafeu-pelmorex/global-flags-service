@@ -1,0 +1,50 @@
+{
+    "flags": [
+        {
+            "key": "A_001_feature_name",
+            "label": "[A-001] Feature description",
+            "env": [
+                {
+                    "name": "development",
+                    "enabled": true,
+                    "stable": false,
+                    "released": "2019-03-19T13:00:00.000Z"
+                },
+                {
+                    "name": "production",
+                    "enabled": true,
+                    "stable": false,
+                    "released": "2019-03-19T13:00:00.000Z"
+                }
+            ],
+            "changes": [
+                "Change A",
+                "Change B",
+                "Change C"
+            ]
+        },
+        {
+            "key": "A_002_feature_name",
+            "label": "[A-002] Feature description",
+            "env": [
+                {
+                    "name": "development",
+                    "enabled": true,
+                    "stable": false,
+                    "released": null
+                },
+                {
+                    "name": "production",
+                    "enabled": true,
+                    "stable": false,
+                    "released": null
+                }
+            ],
+            "changes": [
+                "Change A",
+                "Change B",
+                "Change C"
+            ]
+        }
+    ]
+}

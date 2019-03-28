@@ -3,6 +3,7 @@ const log = require('fancy-log');
 const graphqlHTTP = require('express-graphql');
 const rootValue = require('./components/resolvers');
 const schema = require('./components/schema');
+const morgan = require('morgan');
 const {
   name: NAME,
   version: VERSION
@@ -10,9 +11,12 @@ const {
 
 const PORT = process.env.PORT || 8080;
 const ENVIRONMENT = process.env.ENVIRONMENT || 'development';
+
 const graphiql = (ENVIRONMENT === 'development');
 
 const app = express();
+
+app.use(morgan('short'))
 
 app.use('/graphql', graphqlHTTP({
   schema,

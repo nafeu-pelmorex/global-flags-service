@@ -1,4 +1,5 @@
 const express = require('express');
+const http = require('http');
 const log = require('fancy-log');
 const graphqlHTTP = require('express-graphql');
 const rootValue = require('./components/resolvers');
@@ -9,12 +10,12 @@ const {
   version: VERSION
 } = require('./package.json');
 
-const PORT = process.env.PORT || 8080;
 const ENVIRONMENT = process.env.ENVIRONMENT || 'development';
 
 const graphiql = (ENVIRONMENT === 'development');
 
 const app = express();
+const server = http.Server(app);
 
 app.use(morgan('short'))
 
@@ -24,10 +25,12 @@ app.use('/graphql', graphqlHTTP({
   graphiql
 }));
 
-app.listen(PORT);
+app.use(express.static(__dirname + '/public'));
 
-log(`\n
-  ${NAME} - v${VERSION}
-  running in ${ENVIRONMENT} mode at http://localhost:${PORT}
-  ${graphiql ? `graphiql enabled at http://localhost:${PORT}/graphql` : ''}
-`);
+server.listen(process.env.PORT || 8080, function(){
+  log(`\n
+    ${NAME} - v${VERSION}
+    running in ${ENVIRONMENT} mode at http://localhost:${server.address().port}
+    ${graphiql ? `graphiql enabled at http://localhost:${server.address().port}/graphql` : ''}
+  `);
+});

@@ -1,10 +1,10 @@
 const _ = require('lodash');
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
 const { Flag } = require('./types');
 
-const adapter = new FileSync('db.json')
-const db = low(adapter)
+const adapter = new FileSync('db.json');
+const db = low(adapter);
 
 module.exports = {
   flags: ({ search = '' }) => {
@@ -14,7 +14,7 @@ module.exports = {
       [
         ...flags.map(flag => new Flag(flag))
       ],
-      flag => flag.key.includes(search)
+      flag => flag.key.toLowerCase().includes(search)
     );
   },
 };
